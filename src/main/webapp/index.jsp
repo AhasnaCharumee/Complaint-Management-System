@@ -113,7 +113,8 @@
 
     </style>
 </head>
-<body><div class="header">
+<body>
+<div class="header">
     <h1>Welcome to the Complaint Management System</h1>
     <p>Efficiently manage and resolve public complaints</p>
     <div class="buttons">
@@ -141,6 +142,7 @@
             </div>
         </div>
     </section>
+</div>
 
 <footer>
     <p>&copy; 2025 Complaint Management System. All rights reserved.</p>
