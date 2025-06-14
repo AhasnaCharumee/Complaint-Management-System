@@ -1,10 +1,14 @@
-package lk.ijse.gdse72.controller;
+package lk.ijse.gdse72.cmsaad.controller;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import lk.ijse.gdse72.model.UserDAO;
-import lk.ijse.gdse72.model.podos.UserDTO;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import lk.ijse.gdse72.cmsaad.model.UserDAO;
+import lk.ijse.gdse72.cmsaad.model.podos.UserDTO;
+
 import java.io.IOException;
 
 @WebServlet("/login")
@@ -27,18 +31,19 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
+
+            System.out.println("User authenticated: " + user.getUsername() + ", Role: " + user.getRole());
+
             if (user.isAdmin()) {
-                System.out.println("isAdmin");
-//                resp.sendRedirect(req.getContextPath() + "../../../web/view/admin-dashboard.jsp");
                 resp.sendRedirect(req.getContextPath() + "/view/admin-dashboard.jsp");
             } else if (user.isEmployee()) {
-                System.out.println("IsEmployee");
                 resp.sendRedirect(req.getContextPath() + "/view/employee-dashboard.jsp");
             } else {
-                System.out.println("Some Wrong");
+                System.out.println("Unknown Role");
                 resp.sendRedirect(req.getContextPath() + "/index.jsp?error=role");
             }
         } else {
+            System.out.println("Invalid Credentials");
             resp.sendRedirect(req.getContextPath() + "/index.jsp?error=invalid");
         }
     }
