@@ -157,7 +157,6 @@
             color: #eee;
         }
 
-        /* Different colors for status cards */
         .pending {
             border-left: 5px solid #f0ad4e;
         }
@@ -174,7 +173,6 @@
             border-left: 5px solid #d9534f;
         }
 
-        /* Image styling */
         .image {
             display: flex;
             justify-content: center;
@@ -238,10 +236,7 @@
 
         </ul>
 
-<%--        <button class="logout-btn" href="${pageContext.request.contextPath}/logout">--%>
-<%--            <span class="nav-icon">🚪</span>--%>
-<%--            logout--%>
-<%--        </button>--%>
+
         <a href="${pageContext.request.contextPath}/logout" class="logout-btn" style="text-decoration: none; background-color: #0d438f">
             <span class="nav-icon" style=" background-color: #0d438f"></span>
             Logout
