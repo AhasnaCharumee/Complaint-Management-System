@@ -20,10 +20,10 @@ public class DatabaseConfig {
             dataSource.setMaxIdle(10);
             dataSource.setMaxWaitMillis(10000);
 
-            System.out.println("[DatabaseConfig] ✅ Connection Pool Initialized");
+            System.out.println("[DatabaseConfig]  Connection Pool Initialized");
 
         } catch (Exception e) {
-            System.err.println("[DatabaseConfig] ❌ Error Initializing DB Pool: " + e.getMessage());
+            System.err.println("[DatabaseConfig]  Error Initializing DB Pool: " + e.getMessage());
         }
     }
 
@@ -34,9 +34,9 @@ public class DatabaseConfig {
     public static void shutdown() {
         try {
             dataSource.close();
-            System.out.println("[DatabaseConfig] 🛑 Connection Pool Closed");
+            System.out.println("[DatabaseConfig]  Connection Pool Closed");
         } catch (Exception e) {
-            System.err.println("[DatabaseConfig] ❌ Error closing DB pool: " + e.getMessage());
+            System.err.println("[DatabaseConfig]  Error closing DB pool: " + e.getMessage());
         }
     }
 }

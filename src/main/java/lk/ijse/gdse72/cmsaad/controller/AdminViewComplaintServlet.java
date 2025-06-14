@@ -16,7 +16,6 @@ import java.util.List;
 public class AdminViewComplaintServlet extends HttpServlet {
 
     private final ComplaintDAO complaintDAO = new ComplaintDAO();
-//    private static final Logger logger = Logger.getLogger(AdminViewComplaintServlet.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,7 +42,6 @@ public class AdminViewComplaintServlet extends HttpServlet {
         } catch (RuntimeException e) {
             e.printStackTrace();
             System.out.println("Some thing went wrong ..." + e.getMessage());
-//            logger.log(Level.SEVERE, "Failed to load complaints", e);
             resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to load complaints at this time.");
         }
     }
