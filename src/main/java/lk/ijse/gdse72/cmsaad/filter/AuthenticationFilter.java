@@ -1,11 +1,11 @@
-package lk.ijse.gdse72.filter;
+package lk.ijse.gdse72.cmsaad.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import lk.ijse.gdse72.model.podos.UserDTO;
+import lk.ijse.gdse72.cmsaad.model.podos.UserDTO;
 
 import java.io.IOException;
 
