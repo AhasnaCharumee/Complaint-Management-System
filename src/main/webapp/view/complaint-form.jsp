@@ -4,21 +4,84 @@
 <html>
 <head>
     <title>Submit Complaint</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .error {
-            color: #ff4d4d;
-            font-size: 0.9rem;
-            margin-top: -1rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        input.invalid, textarea.invalid, select.invalid {
-            border: 2px solid #ff4d4d;
-            background: #ffe5e5;
-            transition: 0.3s ease;
-        }
+    <style>body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #e6f0ff;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 500px;
+        margin: 80px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #004aad;
+        margin-bottom: 30px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #003366;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus,
+    select:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    span.error {
+        color: red;
+        font-size: 12px;
+    }
+
+    .invalid {
+        border-color: red !important;
+    }
     </style>
+
 </head>
 <body>
 <div class="container">

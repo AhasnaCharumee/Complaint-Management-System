@@ -1,11 +1,13 @@
-package lk.ijse.gdse72.controller;
+package lk.ijse.gdse72.cmsaad.controller;
 
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import lk.ijse.gdse72.model.ComplaintDAO;
-import lk.ijse.gdse72.model.podos.ComplaintDTO;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lk.ijse.gdse72.cmsaad.model.ComplaintDAO;
+import lk.ijse.gdse72.cmsaad.model.podos.ComplaintDTO;
 
 import java.io.IOException;
 

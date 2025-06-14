@@ -1,8 +1,8 @@
 <%@ page session="true" %>
 <%@ page import="java.util.List" %>
-<%@ page import="lk.ijse.gdse72.model.podos.ComplaintDTO" %>
-<%@ page import="lk.ijse.gdse72.model.podos.UserDTO" %>
-<%@ page import="lk.ijse.gdse72.model.ComplaintDAO" %>
+<%@ page import="lk.ijse.gdse72.cmsaad.model.podos.ComplaintDTO" %>
+<%@ page import="lk.ijse.gdse72.cmsaad.model.podos.UserDTO" %>
+<%@ page import="lk.ijse.gdse72.cmsaad.model.ComplaintDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -22,14 +22,7 @@
 <%--        }--%>
 <%--    %>--%>
 
-    <div style="text-align: center;">
-        <span class="admin-badge">👑 ADMIN PANEL</span>
-        <form action="<%= request.getContextPath() %>/view/admin-dashboard.jsp" style="position: absolute; right: 10px; top: 10px;">
-            <button type="submit" style="background-color: #f44336; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">
-                DashBoard
-            </button>
-        </form>
-    </div>
+
 
     <h1>All Complaints Management</h1>
 
@@ -173,8 +166,8 @@
         </tbody>
     </table>
 
-    <div style="margin-top: 20px; text-align: center;">
-        <a href="${pageContext.request.contextPath}/view/admin-dashboard.jsp" style="padding: 8px 16px; background-color: #4a00e0; color: #fff; text-decoration: none; border-radius: 4px;">
+    <div style="margin-top: 20px; text-align: center; " >
+        <a href="${pageContext.request.contextPath}/view/admin-dashboard.jsp" style="padding: 8px 16px; background-color: #0d438f; color: #fff; text-decoration: none; border-radius: 4px;">
             Back to Dashboard
         </a>
     </div>

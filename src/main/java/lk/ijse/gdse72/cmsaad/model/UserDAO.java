@@ -1,11 +1,11 @@
-package lk.ijse.gdse72.model;
+package lk.ijse.gdse72.cmsaad.model;
+
+import lk.ijse.gdse72.cmsaad.model.podos.UserDTO;
+import lk.ijse.gdse72.cmsaad.util.DatabaseConfig;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import lk.ijse.gdse72.model.podos.UserDTO;
-import lk.ijse.gdse72.util.DatabaseConfig;
 
 public class UserDAO {
     public UserDTO authenticate(String username, String password) {
@@ -51,41 +51,7 @@ public class UserDAO {
         return false;
     }
 
-    public UserDTO getUserById(String userId) {
-        String sql = "SELECT * FROM users WHERE user_id = ?";
 
-        try (Connection conn = DatabaseConfig.getDataSource().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, userId);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return extractUser(rs);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public List<UserDTO> getAllAdmins() {
-        String sql = "SELECT * FROM users WHERE role = 'ADMIN'";
-        List<UserDTO> admins = new ArrayList<>();
-
-        try (Connection conn = DatabaseConfig.getDataSource().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                admins.add(extractUser(rs));
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return admins;
-    }
 
     private UserDTO extractUser(ResultSet rs) throws SQLException {
         UserDTO user = new UserDTO();
@@ -101,6 +67,24 @@ public class UserDAO {
             user.setCreatedAt(createdAt.toLocalDateTime());
         }
         return user;
+    }
+    public List<UserDTO> getAllUsers() {
+        String sql = "SELECT * FROM users";
+        List<UserDTO> users = new ArrayList<>();
+
+        try (Connection conn = DatabaseConfig.getDataSource().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                users.add(extractUser(rs));
+            }
+            System.out.println("Users fetched from DB: " + users); // Debug log
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 }
 

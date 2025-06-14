@@ -1,7 +1,7 @@
-package lk.ijse.gdse72.model;
+package lk.ijse.gdse72.cmsaad.model;
 
-import lk.ijse.gdse72.model.podos.ComplaintDTO;
-import lk.ijse.gdse72.util.DatabaseConfig;
+import lk.ijse.gdse72.cmsaad.model.podos.ComplaintDTO;
+import lk.ijse.gdse72.cmsaad.util.DatabaseConfig;
 
 import java.sql.*;
 import java.time.LocalDateTime;

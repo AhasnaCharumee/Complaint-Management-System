@@ -1,4 +1,4 @@
-package lk.ijse.gdse72.util;
+package lk.ijse.gdse72.cmsaad.util;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -12,7 +12,7 @@ public class DatabaseConfig {
             dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
             dataSource.setUrl("jdbc:mysql://localhost:3306/complaint_management_system");
             dataSource.setUsername("root");
-            dataSource.setPassword("Ijse@1234");
+            dataSource.setPassword("mysql");
 
             dataSource.setInitialSize(5);
             dataSource.setMaxTotal(20);

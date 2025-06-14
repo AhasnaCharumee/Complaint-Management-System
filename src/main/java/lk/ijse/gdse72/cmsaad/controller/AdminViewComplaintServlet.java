@@ -1,15 +1,16 @@
-package lk.ijse.gdse72.controller;
+package lk.ijse.gdse72.cmsaad.controller;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-import lk.ijse.gdse72.model.ComplaintDAO;
-import lk.ijse.gdse72.model.podos.ComplaintDTO;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import lk.ijse.gdse72.cmsaad.model.ComplaintDAO;
+import lk.ijse.gdse72.cmsaad.model.podos.ComplaintDTO;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @WebServlet("/admin/view-all-complaints")
 public class AdminViewComplaintServlet extends HttpServlet {

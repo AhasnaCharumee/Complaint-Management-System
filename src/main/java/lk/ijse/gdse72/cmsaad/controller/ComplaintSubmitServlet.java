@@ -1,17 +1,19 @@
-package lk.ijse.gdse72.controller;
+package lk.ijse.gdse72.cmsaad.controller;
 
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import lk.ijse.gdse72.model.ComplaintDAO;
-import lk.ijse.gdse72.model.podos.ComplaintDTO;
-import lk.ijse.gdse72.util.IdGenerator;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import lk.ijse.gdse72.cmsaad.model.ComplaintDAO;
+import lk.ijse.gdse72.cmsaad.model.podos.ComplaintDTO;
+import lk.ijse.gdse72.cmsaad.util.IdGenerator;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @WebServlet("/employee/submit-complaint")
@@ -63,7 +65,7 @@ public class ComplaintSubmitServlet extends HttpServlet {
 
 
         HttpSession session = req.getSession();
-        String submittedBy = ((lk.ijse.gdse72.model.podos.UserDTO)session.getAttribute("user")).getUserId();
+        String submittedBy = ((lk.ijse.gdse72.cmsaad.model.podos.UserDTO)session.getAttribute("user")).getUserId();
 
         ComplaintDTO complaint = new ComplaintDTO();
         complaint.setComplaintId(IdGenerator.generateComplaintId());

@@ -1,7 +1,7 @@
-<%@ page import="lk.ijse.gdse72.model.podos.ComplaintDTO" %>
-<%@ page import="lk.ijse.gdse72.model.ComplaintDAO" %>
+<%@ page import="lk.ijse.gdse72.cmsaad.model.podos.ComplaintDTO" %>
+<%@ page import="lk.ijse.gdse72.cmsaad.model.ComplaintDAO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="lk.ijse.gdse72.model.podos.UserDTO" %>
+<%@ page import="lk.ijse.gdse72.cmsaad.model.podos.UserDTO" %>
 <%@ page session="true" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
@@ -13,6 +13,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Complaint Management</title>
     <link rel="stylesheet" href="../css/addminDashboard.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #2c7aea, #6fa8dc);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .dashboard-container {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            border-radius: 15px;
+            height: auto;
+            min-height: 100vh;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .logo h1 {
+            font-size: 26px;
+            margin-bottom: 30px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .welcome-section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .nav-item {
+            margin-bottom: 15px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 12px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #ffd700;
+        }
+
+        .logout-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 15px;
+            background-color: #0d438f;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        .logout-btn:hover {
+            background-color: #092f66;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 30px;
+        }
+
+        .header {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            transition: 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #eee;
+        }
+
+        /* Different colors for status cards */
+        .pending {
+            border-left: 5px solid #f0ad4e;
+        }
+
+        .in-progress {
+            border-left: 5px solid #5bc0de;
+        }
+
+        .resolved {
+            border-left: 5px solid #5cb85c;
+        }
+
+        .rejected {
+            border-left: 5px solid #d9534f;
+        }
+
+        /* Image styling */
+        .image {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image img {
+            max-width: 80%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+    </style>
 
 </head>
 <body>
@@ -29,8 +204,7 @@
 
     <nav class="sidebar glass">
         <div class="logo">
-            <h1>📋 CMS</h1>
-            <p>Complaint Management</p>
+            <h1> CMS</h1>
         </div>
 
         <div class="welcome-section">
@@ -54,32 +228,22 @@
                     All Complaints
                 </a>
             </li>
+
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <span class="nav-icon">📈</span>
-                    Reports
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="${pageContext.request.contextPath}/users" class="nav-link">
                     <span class="nav-icon">👥</span>
                     Users
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <span class="nav-icon">⚙️</span>
-                    Settings
-                </a>
-            </li>
+
         </ul>
 
 <%--        <button class="logout-btn" href="${pageContext.request.contextPath}/logout">--%>
 <%--            <span class="nav-icon">🚪</span>--%>
 <%--            logout--%>
 <%--        </button>--%>
-        <a href="${pageContext.request.contextPath}/logout" class="logout-btn" style="text-decoration: none;">
-            <span class="nav-icon">🚪</span>
+        <a href="${pageContext.request.contextPath}/logout" class="logout-btn" style="text-decoration: none; background-color: #0d438f">
+            <span class="nav-icon" style=" background-color: #0d438f"></span>
             Logout
         </a>
     </nav>
@@ -113,7 +277,6 @@
     <main class="main-content">
         <div class="header glass">
             <h1>Admin Dashboard</h1>
-            <p>Monitor and manage complaint system performance</p>
         </div>
 
         <div class="stats-grid">
@@ -135,30 +298,12 @@
             </div>
         </div>
 
-        <div class="charts-grid">
-            <div class="chart-container glass">
-                <h3 class="chart-title">Status Distribution</h3>
-                <div style="color: white; text-align: center; margin-top: 50px;">
-                    Chart functionality would be displayed here
-                </div>
-            </div>
-            <div class="chart-container glass">
-                <h3 class="chart-title">Department Overview</h3>
-                <div style="color: white; text-align: center; margin-top: 50px;">
-                    Chart functionality would be displayed here
-                </div>
-            </div>
-        </div>
+ <div class="image" style="justify-content: center">
+     <img style="justify-content: center" src="https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?ga=GA1.1.451290008.1730015625&semt=ais_hybrid&w=740">
+ </div>
+        
 
-        <div class="recent-activity glass">
-            <h3 class="activity-title">Recent Activity</h3>
-            <div id="recentActivity">
-                <div class="activity-item">
-                    <div class="activity-text">No recent activities to display</div>
-                    <div class="activity-time"></div>
-                </div>
-            </div>
-        </div>
+
     </main>
 </div>
 </body>
