@@ -14,13 +14,6 @@
 <body>
 <div class="container">
 
-<%--    <%--%>
-<%--        UserDTO currentUser = (UserDTO) session.getAttribute("user");--%>
-<%--        if (currentUser == null) {--%>
-<%--            response.sendRedirect(request.getContextPath() + "/index.jsp");--%>
-<%--            return;--%>
-<%--        }--%>
-<%--    %>--%>
 
 
 
@@ -145,9 +138,6 @@
                     </button>
                 </form>
 
-            <%--                <a href="<%= request.getContextPath() %>../admin/view-complaint-details?id=<%= complaint.getComplaintId() %>" class="view-link" style="margin-left: 10px; color: #2196F3;">--%>
-<%--                    👁 View--%>
-<%--                </a>--%>
             </td>
         </tr>
         <%

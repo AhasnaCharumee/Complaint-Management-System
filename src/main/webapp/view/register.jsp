@@ -4,7 +4,6 @@
 <head>
     <title>Register - Complaint Management System</title>
     <style>
-        /* Base Reset */
         * {
             margin: 0;
             padding: 0;
@@ -13,7 +12,7 @@
 
         body {
             font-family: 'Segoe UI', sans-serif;
-            background-color: #4786ea; /* light warm background */
+            background-color: #4786ea;
             color: #333;
             display: flex;
             justify-content: center;
@@ -66,7 +65,7 @@
             outline: none;
         }
 
-        /* Error Styles */
+
         .error {
             color: red;
             font-size: 12px;
@@ -77,7 +76,6 @@
             border-color: red !important;
         }
 
-        /* Submit Button */
         input[type="submit"] {
             margin-top: 20px;
             padding: 12px;
@@ -94,7 +92,7 @@
             background-color: #0056b3;
         }
 
-        /* Back Button */
+
         a {
             font-size: 13px;
         }
