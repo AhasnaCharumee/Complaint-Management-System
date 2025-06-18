@@ -133,8 +133,8 @@
                 </div>
                 <form action="<%= request.getContextPath() %>/complaint/delete" method="post" onsubmit="return confirm('Are you sure you want to delete this complaint?');">
                     <input type="hidden" name="id" value="<%= complaint.getComplaintId() %>">
-                    <button type="submit" class="delete-link">
-                        🗑 Delete
+                    <button type="submit" class="delete-link" style="background-color: red">
+                        🗑
                     </button>
                 </form>
 

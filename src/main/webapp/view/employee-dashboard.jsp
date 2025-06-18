@@ -299,7 +299,9 @@
             </div>
         </div>
 
-
+        <div class="image" style="justify-content: center">
+            <img style="justify-content: center; margin-top: 5%;margin-left: 15%;max-width: 70%;" src="https://img.freepik.com/premium-vector/vector-illustration-concept-online-complaint-petition-claim-dislike_675567-4958.jpg?semt=ais_hybrid&w=740">
+        </div>
 
 
 

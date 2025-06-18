@@ -34,7 +34,7 @@
         .dashboard-container {
             display: flex;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
         }
 
         .sidebar {
@@ -216,20 +216,17 @@
         <ul class="nav-menu">
             <li class="nav-item">
                 <a href="#dashboard" class="nav-link">
-                    <span class="nav-icon">📊</span>
                     Dashboard
                 </a>
             </li>
             <li class="nav-item">
                 <a href="${pageContext.request.contextPath}/view/view-all-complaints.jsp" class="nav-link">
-                    <span class="nav-icon">📋</span>
                     All Complaints
                 </a>
             </li>
 
             <li class="nav-item">
                 <a href="${pageContext.request.contextPath}/users" class="nav-link">
-                    <span class="nav-icon">👥</span>
                     Users
                 </a>
             </li>
@@ -293,10 +290,10 @@
             </div>
         </div>
 
- <div class="image" style="justify-content: center">
-     <img style="justify-content: center" src="https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?ga=GA1.1.451290008.1730015625&semt=ais_hybrid&w=740">
- </div>
-        
+        <div class="image" style="justify-content: center">
+            <img style="justify-content: center;max-width: 70%;max-height: 50%;" src="https://img.freepik.com/premium-vector/service-customers-support-concept_118813-4309.jpg?semt=ais_items_boosted&w=740">
+        </div>
+
 
 
     </main>
